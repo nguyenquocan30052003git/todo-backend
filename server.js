@@ -3,6 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const todosRouter = require('./routes/todos');
+const categoriesRouter = require('./routes/categories');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,6 +14,7 @@ app.use(express.json()); // Parse JSON body
 
 // Routes
 app.use('/api/todos', todosRouter);
+app.use('/api/categories', categoriesRouter);
 
 // Health check route
 app.get('/', (req, res) => {
